@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formation AngularJS</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> <!-- AngularJS hebergé sur le CDN de Google -->
+    <script src="script.js"></script>
+
+</head>
+<body ng-app class="container"> <!-- attribut ng-app pour initialiser AngularJS -->
+    <h1>Formation AngularJS</h1>
+    <h2>Notion de scope</h2>
+
+    <p>1 + 1 = {{1 + 1}}</p>
+    <!-- Ce qui est entre double crochets est interprété par AngularJS et le résultat est injecté dans la page -->
+
+    <!-- On peut aussi utiliser des variables du scope actuel -->
+
+    <input type="text" ng-model="nom" placeholder="Votre nom">
+    <!-- ng-model permet de relier un input à une variable dans le scope -->
+    <p>Votre nom est : {{nom}}</p>
+
+    <hr>
+
+    <!-- Grâce à un controller on peut interagir avec la vue du côté JS -->
+    <div ng-controller="test">
+        <p>Les controlleurs sont : {{adjectif}}.</p>
+        <!-- La variable "adjectif" est injectée dans le scope directement depuis le controller -->
+
+        <hr>
+
+        <p>Le nom est : {{nom}}</p>
+        <!-- ng-controller a permis de créer un nouveau scope, la variable nom est différente dans ce scope que dans le scope parent -->
+
+        <hr>
+
+        <p>Notre utilisateur est {{utilisateur.nom}}, il a {{utilisateur.age}} ans et vient de {{utilisateur.ville}}.</p>
+        <!-- On peut acceder aux éléments d'un objet contenu dans le scope avec la même syntaxe qu'en JS -->
+
+        <hr>
+
+        <!-- On peut aussi itérer sur un array avec la propriété ng-repeat -->
+        <p>Quelques fruits :</p>
+        <ul>
+            <li ng-repeat="fruit in fruits">
+                {{fruit}}
+                <!-- ng-repeat crée un nouveau scope dans chacun des <li> en injectant la variable fruit -->
+                est à {{nom}}.
+                <!-- Les scope héritent de leur parents, ici du scope associé au controller test, on peut donc utilier la variable nom -->
+            </li>
+        </ul>
+
+        <hr>
+
+        <!-- Le scope peut aussi contenir des fonctions que l'on peut relier à certains évenements, ici un clic -->
+        <button
+            ng-click="showAlert()"
+            class="btn btn-primary">
+            Afficher une alerte
+        </button>
+
+        <hr>
+
+        <!-- On peut aussi utiliser ces fonctions pour manipuler le scope -->
+        <form ng-submit="addFruit(fruit)">
+            <!-- ng-submit relie l'evenement submit du form à la fonction addFruit en passant en paramètre la variable fruit -->
+            <input type="text" ng-model="fruit">
+            <button class="btn btn-primary">Ajouter le fruit</button>
+            <!-- Le formulaire peut être validé grâce au button ou directement en appuyant sur entrée, l'event est alors catché par AngularJS qui appelle notre fonction addFruit -->
+        </form>
+
+    </div>
+
+    <hr>
+
+    <h2>A votre clavier !</h2>
+    <p>Vous devez maintenant écrire un controller qui permet d'ajouter, modifier et supprimer une TODO list et l'afficher en HTML.</p>
+
+
+</body>
+</html>
