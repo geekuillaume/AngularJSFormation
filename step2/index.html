@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formation AngularJS</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <!-- AngularJS hebergé sur le CDN de Google -->
+    <script src="vendor/angular-route.js"></script>
+    <!-- Module externe chargé juste après Angular -->
+    <script src="app/app.js"></script>
+    <!-- Déclaration du module formation -->
+    <script src="app/controller/first.js"></script>
+    <script src="app/controller/second.js"></script>
+    <script src="app/controller/bonjour.js"></script>
+    <!-- Chaque controller utilisé dans l'application -->
+
+</head>
+<body ng-app="formation"> <!-- On met maintenant le nom de notre application telle que déclarée dans app.js -->
+    <div class="container">
+        <h1>Formation AngularJS</h1>
+
+        <div ng-view></div>
+        <!-- ng-view permet de déclarer l'élément du DOM qui contiendra nos template en fonction de chaque route -->
+    </div>
+
+</body>
+</html>
