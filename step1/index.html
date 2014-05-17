@@ -11,7 +11,7 @@
 </head>
 <body ng-app class="container"> <!-- attribut ng-app pour initialiser AngularJS -->
     <h1>Formation AngularJS</h1>
-    <h2>Notion de scope</h2>
+    <h2>Notion de scope <small>(en regardant le code source c'est mieux)</small></h2>
 
     <p>1 + 1 = {{1 + 1}}</p>
     <!-- Ce qui est entre double crochets est interprété par AngularJS et le résultat est injecté dans la page -->
@@ -20,7 +20,15 @@
 
     <input type="text" ng-model="nom" placeholder="Votre nom">
     <!-- ng-model permet de relier un input à une variable dans le scope -->
+    <!-- ng-model est une directive -->
     <p>Votre nom est : {{nom}}</p>
+    <!-- Ce processus s'appelle le Two-Way Data Binding -->
+
+    <hr>
+
+    <input type="text" ng-model="color" placeholder="Une couleur">
+    <p style="color: {{color}}">Je suis en : {{color}}</p>
+    <!-- Le binding peut aussi être utilisé dans n'importe qu'elle propriété HTML -->
 
     <hr>
 
@@ -77,6 +85,13 @@
 
     <h2>A votre clavier !</h2>
     <p>Vous devez maintenant écrire un controller qui permet d'ajouter, modifier et supprimer une TODO list et l'afficher en HTML.</p>
+
+    <!-- Plusieurs directives utiles :
+        - ng-repeat
+        - ng-model
+        - ng-click
+        - ng-hide / ng-show
+        - ng-class -->
 
 
 </body>
