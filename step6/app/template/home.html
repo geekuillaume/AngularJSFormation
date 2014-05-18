@@ -1,0 +1,22 @@
+<p>"{{str}}" en majuscule : "{{str | uppercase}}"</p>
+<!-- Pour appliquer un filtre à une variable, on utilise "|" -->
+
+<p>{{date}} en formaté : "{{date | date}}" et aussi : "{{date | date:"d/MM/yyyy H:m"}}"</p>
+<!-- Un filtre peut recevoir plusieurs arguments séparés par ":" -->
+<!-- Le filtre date peut recevoir une string de mise en forme, voir la documentation pour connaitre les différents flags -->
+
+<p>"{{price}}" en dolars : "{{price | currency}}" / "{{price | currency:'USD$'}}"</p>
+<!-- le filtre currency permet de mettre en forme un prix, il accepte un argument qui est le symbole de la monnaie -->
+
+
+<p>Trier par <a href="" ng-click="predicate = 'name'">Nom</a> (<a href="" ng-click="predicate = '-name'">^</a>) ou <a href="" ng-click="predicate = 'age'">Age</a> (<a href="" ng-click="predicate = '-age'">^</a>)</p>
+
+<input type="text" ng-model="search.name" placeholder="Recherche">
+
+<ul>
+    <li ng-repeat="personne in personnes | filter:search | orderBy:predicate">{{personne.name}} - {{personne.age}} - {{personne.age | dateOfBirth}} - {{personne.age | dateOfBirth:2000}}</li>
+    <!-- On peut aussi utiliser les filtres dans des directives, comme ici dans ng-repeat -->
+    <!-- Il est aussi possible de chainer les filtres en utilisant plusieurs "|" -->
+    <!-- Le filtre "filter" permet de filtrer les objets d'un array en fonction d'un autre objet, il peut prendre en deuxième argument une fonction qui définira si l'élément est à garder ou non -->
+    <!-- Le filtre dateOfBirth est un filtre que nous avons déclaré dans le fichier dateOfBirth.js -->
+</ul>
