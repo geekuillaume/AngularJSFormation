@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formation AngularJS</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <!-- AngularJS hebergé sur le CDN de Google -->
+    <script src="/vendor/angular-route.js"></script>
+    <!-- Module externe chargé juste après Angular -->
+
+    <script src="/app/app.js"></script>
+    <!-- On inclue notre application AngularJS -->
+    <script src="/app/controller/first.js"></script>
+    <script src="/app/controller/saved.js"></script>
+    <!-- Ainsi que tout les controller  -->
+    <script src="/app/service/FormationServices.js"></script>
+    <script src="/app/service/User.js"></script>
+    <script src="/app/service/Infos.js"></script>
+    <script src="/app/service/FalseApi.js"></script>
+    <!-- On peut ensuite inclure tout les services associés -->
+</head>
+<body ng-app="formation">
+    <div class="container">
+        <h1>{{infos.appName}} - {{infos.date}}</h1>
+
+        <div ng-view></div>
+    </div>
+
+</body>
+</html>
