@@ -17,4 +17,9 @@ function test($scope) {
     $scope.addFruit = function (fruit) {
         $scope.fruits.push(fruit);
     }
+
+    $scope.$watch("toLog", function(value) {
+        // Cette fonction va être executée à chaque changement de $scope.toLog
+        console.log("Value changed to : " + value);
+    })
 }
